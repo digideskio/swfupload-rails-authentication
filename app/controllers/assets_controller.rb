@@ -1,8 +1,6 @@
 class AssetsController < ApplicationController
 
   layout 'layout'
-
-  session :cookie_only => false, :only => :create
   
   before_filter :login_required
   

@@ -5,7 +5,7 @@
 
   window.onload = function () {
     swfu = new SWFUpload({
-      upload_url : '<%= assets_path -%>?_swfupload_demo_session=<%= u session.session_id %>',
+      upload_url : '<%= new_asset_path_with_session_information %>',
       flash_url : '/flash/swfupload.swf',
 
 			// Button settings

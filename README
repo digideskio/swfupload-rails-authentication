@@ -1,14 +1,14 @@
 swfupload-rails-authentication
 ==============================
 
-Demo Rails 2.1.2 app showing SWFUpload working in tandem with restful-authentication, CSRF protection and attachment_fu.
+Demo Rails 2.3.2 app showing SWFUpload working in tandem with restful-authentication, CSRF protection and attachment_fu.
 
-The demo has been updated to use SWFUpload v2.2.0 Beta 2, which supports Flash Player 10.
+The demo has been updated to use SWFUpload v2.2.0 Beta 5, which supports Flash Player 10.
 
 Requirements
 ============
 
-Rails 2.1
+Rails 2.3
 ImageMagick
 mini_magick gem
 mime-types gem
@@ -34,6 +34,4 @@ password: monkey
 References
 ==========
 
-http://seventytwo.co.uk/posts/making-swfupload-and-rails-work-together
-http://blog.airbladesoftware.com/2007/8/8/uploading-files-with-swfupload
-http://blog.inquirylabs.com/2006/12/09/getting-the-_session_id-from-swfupload/
+http://thewebfellas.com/blog/2008/12/22/flash-uploaders-rails-cookie-based-sessions-and-csrf-rack-middleware-to-the-rescue
