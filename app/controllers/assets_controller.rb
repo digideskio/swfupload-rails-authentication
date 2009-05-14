@@ -7,7 +7,7 @@ class AssetsController < ApplicationController
   # GET /assets
   # GET /assets.xml
   def index
-    @assets = Asset.masters
+    @assets = current_user.assets
 
     respond_to do |format|
       format.html # index.html.erb
