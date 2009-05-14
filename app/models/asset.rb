@@ -13,9 +13,9 @@ class Asset < ActiveRecord::Base
   
   # Validations
   validates_attachment_content_type :image, 
-                                    :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg'],
+                                    :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg', 'image/tiff', 'image/tif'],
                                     :message => 'Picture must be a jpeg, tif or pdf file type'
-  validates_attachment_size :image, :in => 1..5.megabyte
+  validates_attachment_size :image, :in => 1..26.megabyte
   
   attr_protected :image_file_name, :image_content_type, :image_size
 
