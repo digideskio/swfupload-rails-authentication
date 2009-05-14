@@ -4,26 +4,28 @@ class Asset < ActiveRecord::Base
   
   # Relationships
   belongs_to :user
+                  
+  has_attached_file :image, 
+                    :styles => {:thumb => "150x150#"},
+                    :whiny_thumbnails => true,
+                    :url => "/asset_images/:style/:basename.:extension",
+                    :path => ":rails_root/public/asset_images/:style/:basename.:extension"
   
-  has_attachment  :storage      => :file_system,
-                  :max_size     => 5.megabytes,
-                  :resize_to    => '800x600>',
-                  :thumbnails   => { :thumb => '150x150>' },
-                  :processor    => :MiniMagick
-                 
- 
   # Validations
-  validates_as_attachment
+  validates_attachment_content_type :image, 
+                                    :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg'],
+                                    :message => 'Picture must be a jpeg, tif or pdf file type'
+  validates_attachment_size :image, :in => 1..5.megabyte
   
-  #
-  named_scope :masters, :conditions => {:parent_id => nil}
+  attr_protected :image_file_name, :image_content_type, :image_size
+
   
   # Map file extensions to mime types.
   # Thanks to bug in Flash 8 the content type is always set to application/octet-stream.
   # From: http://blog.airbladesoftware.com/2007/8/8/uploading-files-with-swfupload
   def swf_uploaded_data=(data)
     data.content_type = MIME::Types.type_for(data.original_filename)
-    self.uploaded_data = data
+    self.image = data
   end
   
 end
