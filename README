@@ -10,7 +10,6 @@ Requirements
 
 Rails 2.3
 ImageMagick
-mini_magick gem
 mime-types gem
 paperclip gem
 
