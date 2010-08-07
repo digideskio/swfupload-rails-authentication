@@ -1,6 +1,4 @@
 class AssetsController < ApplicationController
-
-  layout 'layout'
   
   before_filter :login_required
   
@@ -53,7 +51,7 @@ class AssetsController < ApplicationController
         @asset.user = current_user
         @asset.save!
 
-        format.html { render :text => @asset.public_filename(:thumb) }
+        format.html { render :text => @asset.image.url(:thumb) }
         format.xml  { render :nothing => true }
       else
         if @asset.save
